@@ -2,6 +2,7 @@ package org.launchcode.techjobs.console;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -111,6 +112,25 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+        if (someJobs.size() == 0) {
+            System.out.print("No Results");
+            return;
+        }
+
+        //Create a nested loop of ArrayLists and Hashmaps
+        //What are the data types we are using? What variable do we then need that is given above?
+        //Initialize a variable jobInfo to match expected output
+       for (HashMap<String, String> job: someJobs) {
+
+           String jobInfo = "\n*****\n";
+           //nest another loop and update variable with hashmap methods getKey and getValue to display results
+           for (Map.Entry<String, String> jobColumn: job.entrySet()) {
+               jobInfo += (jobColumn.getKey() + ":" + jobColumn.getValue() + "\n");
+           }
+           jobInfo += "*****";
+
+           System.out.println(jobInfo);
+        }
+
     }
 }
